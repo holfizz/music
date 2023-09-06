@@ -1,0 +1,161 @@
+.musicHeader {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerInfBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  color: white;
+  height: 100%;
+}
+
+.headerInfBlockTitle {
+  font-size: 30px;
+  color: white;
+  font-weight: 300;
+}
+
+.headerInfBlockDesc {
+  font-size: 20px;
+  color: #c4c4c4;
+  font-weight: 300;
+}
+
+.searchBlock {
+  font-size: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  svg {
+    position: relative;
+    left: 40px;
+  }
+}
+
+.search {
+  width: 20vw;
+  height: 50px;
+  border-radius: 20px;
+  padding: 0 55px;
+  border: 1px solid #fff;
+  background: transparent;
+  font-size: 20px;
+  color: #fff;
+}
+
+.search::placeholder {
+  font-size: 20px;
+  color: #fff;
+}
+
+
+.profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userAuthControl {
+  display: flex;
+}
+
+.buttonUserAuth {
+  color: #cccccc;
+  height: 40px;
+  background: transparent;
+  font-size: 20px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 100;
+  transition: all .3s;
+}
+
+.buttonUserAuth:hover {
+  color: #fff;
+  transition: all .3s;
+
+}
+
+.blockAuthControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.titleAuthControl {
+  font-size: 40px;
+  color: #fff;
+  font-weight: 100;
+}
+
+.inputAuthControl {
+  width: 50%;
+  height: 50px;
+  margin: 10px 0;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 0 50px 0 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: 200;
+  box-sizing: border-box;
+
+}
+
+.buttonAuthControl {
+  width: 50%;
+  height: 50px;
+  margin: 10px 0;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 0 10px;
+  font-size: 20px;
+  color: white;
+  font-weight: 200;
+  transition: all .3s;
+}
+
+.buttonAuthControl:hover {
+  background: #fff;
+  color: #9a9a9a;
+  transition: all .3s;
+}
+
+.passwordBlock {
+  width: 50%;
+  font-size: 20px;
+  color: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+
+  input {
+    width: 100%;
+    box-sizing: content-box;
+  }
+}
+
+.passwordChangeMode {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 26px;
+}
