@@ -8,7 +8,7 @@ const App: FC = () => {
         <div className={'app'}>
             <MusicNavbar/>
             <MusicPlayer/>
-            s
+            
         </div>
 
     )
