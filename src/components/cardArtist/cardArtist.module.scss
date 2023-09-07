@@ -1,0 +1,23 @@
+.cardArtist {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.cardArtistImg {
+  border-radius: 50%;
+  margin-bottom: 20px;
+
+
+}
+
+.cardArtistName {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300;
+}

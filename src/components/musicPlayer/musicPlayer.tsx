@@ -1,30 +1,52 @@
 import cls from './musicPlayer.module.scss'
 import MusicControl from "../musicControl/musicControl.tsx";
 import MusicHeader from "../musicHeader/musicHeader.tsx";
-import {useGetAllTracksQuery} from "../../api/tracks.api.ts";
-import {ITracks} from "../../interfaces/tracks.interface.ts";
+import {useGetAllArtistsQuery, useGetAllTracksQuery} from "../../api/tracks.api.ts";
+import {IArtist} from "../../interfaces/artist.interface.ts";
+import CardArtist from "../cardArtist/cardArtist.tsx";
+import CardTrack from "../cardTrack/cardTrack.tsx";
+import {ITrack} from "../../interfaces/track.interface.ts";
 
 
 const musicPlayer = () => {
-    const {data} = useGetAllTracksQuery({})
+    const {data: dataTracks} = useGetAllTracksQuery({})
+    const {data: dataArtists} = useGetAllArtistsQuery({})
+
 
     return (
         <div className={cls.musicPlayer}>
             <MusicControl/>
-            <div className={cls.musicPlayerContent}>
+
+            <div className={cls.display}>
                 <MusicHeader/>
-                <div className={cls.tracksPanel}>
-                    {data && data.map((tracks: ITracks) => {
-                        return <div>
-                            <img width={210} src={`http://localhost:4000/${tracks.picture}`}/>
-                            <audio controls={true} src={`http://localhost:4000/${tracks.audio}`}>
-                                <source src={`http://localhost:4000/${tracks.audio}`} type="audio/mpeg"></source>
-                            </audio>
-                            <h1>
-                                {tracks.name}
-                            </h1>
+                <div className={cls.musicPlayerContent}>
+                    <div className={cls.tracksPanel}>
+                        <div className={cls.popularArtist}>
+                            <h2 className={cls.titleSongs}>Popular artists</h2>
+                            <div className={cls.listArtists}>
+                                {dataArtists && dataArtists.map((artist: IArtist) => {
+                                    return <CardArtist id={artist.id} name={artist.name} avatar={artist.avatar}/>
+                                })}
+
+                            </div>
                         </div>
-                    })}
+                        <div className={cls.songs}>
+                            <h2 className={cls.titleSongs}>Your songs</h2>
+                            <div className={cls.listSongs}>
+                                {dataTracks && dataTracks.map((track: ITrack) => {
+                                    return <CardTrack id={track.id}
+                                                      name={track.name}
+                                                      artist={track.artist}
+                                                      picture={track.picture}
+                                                      audio={track.audio}
+                                    />
+                                })}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cls.nowPlay}></div>
+
                 </div>
             </div>
         </div>
@@ -32,3 +54,16 @@ const musicPlayer = () => {
 }
 
 export default musicPlayer
+
+{/*{dataTracks && dataTracks.map((track: ITrack) => {
+                        return <div>
+                            <img width={210} src={track.picture}/>
+                            <audio controls={true} src={track.audio}>
+                                <source src={track.audio} type="audio/mpeg"></source>
+                            </audio>
+                            <h1>
+                                {track.name}
+                            </h1>
+                        </div>
+                    })}*/
+}

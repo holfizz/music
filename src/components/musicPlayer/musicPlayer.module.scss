@@ -11,10 +11,16 @@
   position: relative;
 }
 
-.musicPlayerContent {
+.display {
   display: flex;
   flex-direction: column;
-  width: -webkit-fill-available;
+  overflow: hidden;
+
+}
+
+.musicPlayerContent {
+  display: flex;
+  overflow: hidden;
 }
 
 .tracksPanel {
@@ -23,8 +29,7 @@
 
 .tracksPanel::-webkit-scrollbar {
   background: transparent;
-  width: 10px;
-  background: transparent;
+  width: 3px;
 }
 
 .tracksPanel::-webkit-scrollbar-thumb {
@@ -32,3 +37,46 @@
   border-radius: 15px;
 }
 
+.popularArtist {
+  padding: 20px;
+}
+
+.listArtists {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+
+}
+
+.listArtists::-webkit-scrollbar {
+  background: transparent;
+  height: 3px;
+}
+
+.listArtists::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  border-radius: 15px;
+}
+
+.titleSongs {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.listSongs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nowPlay {
+  margin: 0 10px;
+  width: 700px;
+  height: 100%;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}

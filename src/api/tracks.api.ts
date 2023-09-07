@@ -11,7 +11,13 @@ export const tracksApi = createApi({
                 method: 'GET'
             }),
         }),
+        getAllArtists: builder.query({
+            query: () => ({
+                url: 'artists',
+                method: 'GET'
+            }),
+        }),
     }),
 })
 
-export const {useGetAllTracksQuery} = tracksApi
+export const {useGetAllTracksQuery, useGetAllArtistsQuery} = tracksApi
