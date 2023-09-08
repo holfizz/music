@@ -62,11 +62,11 @@ const musicHeader: FC = () => {
                             {showPassword ?
                                 <div className={cls.passwordChangeMode}
                                      onClick={() => setShowPassword(prevState => !prevState)}>
-                                    <FiEyeOff/>
+                                    <FiEye/>
                                 </div> :
                                 <div className={cls.passwordChangeMode}
                                      onClick={() => setShowPassword(prevState => !prevState)}>
-                                    <FiEye/>
+                                    <FiEyeOff/>
                                 </div>
                             }
                         </div>
@@ -75,6 +75,7 @@ const musicHeader: FC = () => {
                 }
                 {modeModal === 'registration' &&
                     <div className={cls.blockAuthControl}>
+                        <h1 className={cls.titleAuthControl}>Registration</h1>
                         <input onChange={(e) => setEmail(e.target.value)} className={cls.inputAuthControl}
                                placeholder={'email'}></input>
                         <div className={cls.passwordBlock}>
@@ -87,11 +88,11 @@ const musicHeader: FC = () => {
                             {showPassword ?
                                 <div className={cls.passwordChangeMode}
                                      onClick={() => setShowPassword(prevState => !prevState)}>
-                                    <FiEyeOff/>
+                                    <FiEye/>
                                 </div> :
                                 <div className={cls.passwordChangeMode}
                                      onClick={() => setShowPassword(prevState => !prevState)}>
-                                    <FiEye/>
+                                    <FiEyeOff/>
                                 </div>
                             }
                         </div>

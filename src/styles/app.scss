@@ -48,3 +48,10 @@ h1, h2, h3, h4, h5, p {
   justify-content: center;
   align-items: center;
 }
+
+.musicBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

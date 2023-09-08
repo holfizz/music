@@ -22,7 +22,7 @@ const musicPlayer = () => {
                 <div className={cls.musicPlayerContent}>
                     <div className={cls.tracksPanel}>
                         <div className={cls.popularArtist}>
-                            <h2 className={cls.titleSongs}>Popular artists</h2>
+                            <h2 className={cls.titlePopularArtist}>Popular artists</h2>
                             <div className={cls.listArtists}>
                                 {dataArtists && dataArtists.map((artist: IArtist) => {
                                     return <CardArtist id={artist.id} name={artist.name} avatar={artist.avatar}/>

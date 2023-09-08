@@ -1,13 +1,8 @@
-import {FC, useEffect} from 'react'
+import {FC} from 'react'
 import cls from './cardTrack.module.scss'
 import {ITrack} from "../../interfaces/track.interface.ts";
 
 const cardTrack: FC<ITrack> = ({picture, name, id, audio, artist}) => {
-
-    useEffect(() => {
-        console.log()
-    }, [audio]);
-
     return (
         <div key={id} className={cls.cardTrack}>
             <div className={cls.cardImgAndInf}>
@@ -19,10 +14,10 @@ const cardTrack: FC<ITrack> = ({picture, name, id, audio, artist}) => {
                     <h2 className={cls.trackArtist}>{artist}</h2>
                 </div>
             </div>
-            <h2>{audio.length}</h2>
             <audio controls={true} src={audio}>
+                <source src={audio}/>
             </audio>
-
+            <button>Play</button>
         </div>
     )
 }
