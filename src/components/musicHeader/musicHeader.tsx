@@ -4,6 +4,7 @@ import {BiSearch} from "react-icons/bi";
 import {HiMiniChevronRight} from "react-icons/hi2";
 import Modal from "../modal/modal.tsx";
 import {FiEye, FiEyeOff} from "react-icons/fi";
+import {useLoginMutation, useRegistrationMutation} from "../../api/auth.api.ts";
 
 const musicHeader: FC = () => {
     const [visibleModal, setVisibleModal] = useState<boolean>(false)
@@ -11,11 +12,34 @@ const musicHeader: FC = () => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [registration, {
+        data: dataRegistration
+        // isError: isErrorRegistration,
+        // isSuccess: isSuccessRegistration,
+        // error: errorRegistration
+    }] = useRegistrationMutation()
+    const [login, {
+        data: dataLogin
+        // isError: isErrorLogin,
+        // isSuccess: isSuccessLogin,
+        // error: errorLogin
+    }] = useLoginMutation()
+
     useEffect(() => {
         console.log(email)
         console.log(password)
     }, []);
+    useEffect(() => {
+        console.log(dataLogin)
+        console.log(dataRegistration)
 
+    }, [dataLogin, dataRegistration]);
+    const handelRegistration = async () => {
+        await registration({email: email, password: password});
+    };
+    const handelLogin = async () => {
+        await login({email: email, password: password});
+    };
     return (
         <div className={cls.musicHeader}>
             <div className={cls.headerInfBlock}>
@@ -70,7 +94,12 @@ const musicHeader: FC = () => {
                                 </div>
                             }
                         </div>
-                        <button className={cls.buttonAuthControl}>continue</button>
+                        <button
+                            onClick={handelLogin}
+                            className={cls.buttonAuthControl}
+                        >
+                            continue
+                        </button>
                     </div>
                 }
                 {modeModal === 'registration' &&
@@ -96,8 +125,8 @@ const musicHeader: FC = () => {
                                 </div>
                             }
                         </div>
-                        <button onClick={() => {
-                        }} className={cls.buttonAuthControl}>continue
+                        <button onClick={handelRegistration}
+                                className={cls.buttonAuthControl}>continue
                         </button>
                     </div>
                 }
