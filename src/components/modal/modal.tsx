@@ -5,7 +5,7 @@ import {IoClose} from "react-icons/io5";
 interface ModalProps {
     children: ReactNode,
     visible: boolean,
-    setVisible: Dispatch<SetStateAction<boolean>>
+    setVisible: Dispatch<SetStateAction<boolean>>,
 }
 
 const Modal: FC<ModalProps> = ({children, visible, setVisible}) => {
@@ -14,8 +14,12 @@ const Modal: FC<ModalProps> = ({children, visible, setVisible}) => {
         rootClasses.push(cls.active)
     }
     return (
-        <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
-            <div className={cls.modalContent} onClick={(e) => e.stopPropagation()}>
+        <div
+            className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+            <div
+
+                className={cls.modalContent}
+                onClick={(e) => e.stopPropagation()}>
                 <div className={cls.closeModal}>
                     <button onClick={() => setVisible(false)}>
                         <IoClose></IoClose>
