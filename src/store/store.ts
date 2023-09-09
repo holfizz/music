@@ -6,7 +6,7 @@ import {authApi} from "../api/auth.api.ts";
 
 export const store = configureStore({
     reducer: {
-        api: rootReducer,
+        songs: rootReducer,
         [tracksApi.reducerPath]: tracksApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
 

@@ -18,6 +18,12 @@ button {
   cursor: pointer;
 }
 
+audio {
+  all: initial;
+  -webkit-all: initial;
+}
+
+
 div {
   user-select: none;
   -moz-user-select: none;

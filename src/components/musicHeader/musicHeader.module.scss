@@ -159,3 +159,66 @@
   right: 20px;
   top: 26px;
 }
+
+.profileBlock {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    cursor: pointer;
+  }
+}
+
+.profileEmail {
+  font-size: 20px;
+  font-weight: 200;
+  color: #fff;
+}
+
+.profileImg {
+  width: 50px;
+  height: 50px;
+  background: #61a7ef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all .3s;
+
+  cursor: pointer;
+}
+
+.profileImg:hover {
+  transition: all .3s;
+  background: #7697ee;
+}
+
+.buttonUserSettings {
+  width: 93%;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #fff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px 0 0 0;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  border-bottom: 1px solid transparent;
+  transition: all .3s;
+
+  button {
+    font-size: 16px;
+    color: #fff;
+  }
+}
+
+.buttonUserSettings:hover {
+  -webkit-backdrop-filter: blur(140px);
+  backdrop-filter: blur(140px);
+  border-bottom: 1px solid #fff;
+  transition: all .3s;
+}

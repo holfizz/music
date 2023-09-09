@@ -6,11 +6,13 @@ import {IArtist} from "../../interfaces/artist.interface.ts";
 import CardArtist from "../cardArtist/cardArtist.tsx";
 import CardTrack from "../cardTrack/cardTrack.tsx";
 import {ITrack} from "../../interfaces/track.interface.ts";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 
 
 const musicPlayer = () => {
     const {data: dataTracks} = useGetAllTracksQuery({})
     const {data: dataArtists} = useGetAllArtistsQuery({})
+    const currentTrackUpd = useTypedSelector((state) => state.songs.songs.currentSong);
 
 
     return (
@@ -33,13 +35,22 @@ const musicPlayer = () => {
                         <div className={cls.songs}>
                             <h2 className={cls.titleSongs}>Your songs</h2>
                             <div className={cls.listSongs}>
-                                {dataTracks && dataTracks.map((track: ITrack) => {
-                                    return <CardTrack id={track.id}
-                                                      name={track.name}
-                                                      artist={track.artist}
-                                                      picture={track.picture}
-                                                      audio={track.audio}
-                                    />
+                                {dataTracks && dataTracks.map((track: ITrack, index: number) => {
+                                    const nextIndex = index + 1;
+                                    const previousIndex = index - 1;
+
+                                    const nextSong = nextIndex < dataTracks.length ? dataTracks[nextIndex] : null;
+                                    const previousSong = previousIndex >= 0 ? dataTracks[previousIndex] : null;
+                                    return (
+                                        <CardTrack
+                                            id={currentTrackUpd?.id}
+                                            nextSong={nextSong}
+                                            currentSong={track}
+                                            previousSong={previousSong}
+                                            dataTracks={dataTracks}
+
+                                        />
+                                    );
                                 })}
 
                             </div>

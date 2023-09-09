@@ -1,10 +1,124 @@
-.audioPlayer {
+.audioComponentPlayer {
   width: 70vw;
   height: 100px;
-  margin-top: 50px;
+  margin-top: 30px;
   background: rgba(183, 183, 183, 0.6);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: 30px;
   border: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audioController {
+  display: none;
+}
+
+.audioPlayer {
+  display: none;
+}
+
+.buttonPlayAndPause {
+  font-size: 20px;
+  color: #fff;
+}
+
+.componentInfBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+  padding: 10px;
+  height: 60px;
+  margin: 10px 20px;
+  box-sizing: border-box;
+  backdrop-filter: blur(300px);
+  -webkit-backdrop-filter: blur(300px);
+  box-shadow: 0 2px 40px 10px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+}
+
+.componentInfImage {
+  border-radius: 5px;
+}
+
+.blockInfSong {
+  margin: 10px 10px 0 10px;
+}
+
+.componentInfTitle {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 200;
+  align-items: end;
+}
+
+.componentInfAuthors {
+  font-size: 12px;
+  color: #d0d0d0;
+  font-weight: 200;
+}
+
+.progress_bar {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.progress {
+  width: 300px;
+  height: 5px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+.progress::-webkit-progress-value {
+  background: #ffffff !important;
+}
+
+.progress::-moz-progress-bar {
+  background: #ffffff !important;
+}
+
+.progress::-webkit-progress-inner-element {
+  background: #fff;
+}
+
+.volumeBlock {
+  width: 160px;
+  font-size: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 30px;
+}
+
+.iconVolumeBlock {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.volumeLine {
+  width: 100px;
+  height: 3px;
+  background: #fff;
+}
+
+.volumeLine::-webkit-progress-value {
+  background: #ffffff !important;
+}
+
+.volumeLine::-moz-progress-bar {
+  background: #ffffff !important;
+}
+
+.volumeLine::-webkit-progress-inner-element {
+  background: #fff;
 }

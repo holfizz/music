@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import songsSlice from "./songsSlice.ts";
+import songsSlice, {songsSliceProps} from "./songsSlice.ts";
 
 export interface rootState {
-    songs: any;
+    songs: songsSliceProps;
 }
 
 export const rootReducer = combineReducers<rootState>({
