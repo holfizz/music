@@ -20,9 +20,42 @@
   display: none;
 }
 
+.playerControlMenu {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 100;
+  display: flex;
+  height: 70px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.nextAndPrev {
+  margin: 15px 5px 0 5px;
+
+  font-size: 40px;
+}
+
 .buttonPlayAndPause {
   font-size: 20px;
   color: #fff;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all .3s;
+  border-radius: 50%;
+  padding-top: 5px;
+}
+
+.buttonPlayAndPause:hover {
+  transition: all .3s;
+  background: rgba(255, 255, 255, 0.4);
+
 }
 
 .componentInfBlock {
@@ -62,10 +95,13 @@
 }
 
 .progress_bar {
-  width: 400px;
+  width: 410px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
+  font-size: 12 pz;
+  font-weight: 100;
 
 }
 
@@ -111,7 +147,43 @@
   background: #fff;
 }
 
-.volumeLine::-webkit-progress-value {
+input[type="range"] {
+  -webkit-appearance: none;
+  margin-right: 15px;
+  width: 200px;
+  height: 3px;
+  border-radius: 5px;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: ew-resize;
+  box-shadow: 0 0 2px 0 #f3f3f3;
+  transition: background .3s ease-in-out;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  background: #6d99c2;
+  outline: none;
+  border: 2px solid #fff;
+  box-shadow: none;
+
+}
+
+.volumeLine:in-range {
   background: #ffffff !important;
 }
 

@@ -11,11 +11,10 @@ interface cardTrack {
     previousSong: ITrack,
     currentSong: ITrack,
     dataTracks: ITrack[],
-    id: number
-
+    className?: string
 }
 
-const cardTrack: FC<cardTrack> = ({previousSong, currentSong, nextSong, dataTracks, id}) => {
+const cardTrack: FC<cardTrack> = ({previousSong, currentSong, nextSong, dataTracks, className}) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
     const audioRef = useRef(null);
@@ -51,14 +50,14 @@ const cardTrack: FC<cardTrack> = ({previousSong, currentSong, nextSong, dataTrac
         setIsPlaying((prevState) => !prevState);
     };
     return (
-        <div key={currentSong.id} className={cls.cardTrack}>
+        <div key={currentSong?.id} className={[cls.cardTrack, className].join(' ')}>
             <div className={cls.cardImgAndInf}>
-                <img className={cls.cardTrackImg} width={60} src={currentSong.picture} alt={''}/>
+                <img className={cls.cardTrackImg} width={60} src={currentSong?.picture} alt={''}/>
                 <div className={cls.trackInf}>
                     <h1 className={cls.cardTrackName}>
-                        {currentSong.name}
+                        {currentSong?.name}
                     </h1>
-                    <h2 className={cls.trackArtist}>{currentSong.artist}</h2>
+                    <h2 className={cls.trackArtist}>{currentSong?.artist}</h2>
                 </div>
             </div>
             <div className={cls.blockTime}>
@@ -70,7 +69,7 @@ const cardTrack: FC<cardTrack> = ({previousSong, currentSong, nextSong, dataTrac
                 <FaPlay/>
             </button>
             <audio onLoadedMetadata={onLoadedMetadata} className={cls.audioPlayer} ref={audioRef} controls={false}
-                   src={currentSong.audio}></audio>
+                   src={currentSong?.audio}></audio>
         </div>
     )
 }

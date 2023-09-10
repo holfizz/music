@@ -3,7 +3,7 @@ import cls from './audioPlayer.module.scss'
 import {FaPause, FaPlay} from "react-icons/fa6";
 import {ITrack} from "../../interfaces/track.interface.ts";
 import {formatTime} from "../../helpers/formatTime.ts";
-import {BiSpeaker} from "react-icons/bi";
+import {BiSkipNext, BiSkipPrevious, BiSpeaker} from "react-icons/bi";
 import {PiSpeakerLowBold} from "react-icons/pi";
 
 interface audioPlayerProps {
@@ -26,6 +26,7 @@ const audioPlayer: FC<audioPlayerProps> = ({currentSong, previousSong, nextSong}
         setIsPlaying(false)
 
     }, []);
+
     const togglePlay = () => {
         const audio = audioRef.current;
         if (isPlaying) {
@@ -88,9 +89,19 @@ const audioPlayer: FC<audioPlayerProps> = ({currentSong, previousSong, nextSong}
             <div>
                 <audio onLoadedMetadata={onLoadedMetadata} className={cls.audioPlayer} ref={audioRef} controls={true}
                        src={currentSong?.audio}></audio>
-                <button className={cls.buttonPlayAndPause} onClick={togglePlay}>
-                    {isPlaying ? <FaPause/> : <FaPlay/>}
-                </button>
+                <div className={cls.playerControlMenu}>
+                    {/*<FaRandom/>*/}
+                    <div className={cls.nextAndPrev}>
+                        <BiSkipPrevious/>
+                    </div>
+                    <button className={cls.buttonPlayAndPause} onClick={togglePlay}>
+                        {isPlaying ? <FaPause/> : <FaPlay/>}
+                    </button>
+                    <div className={cls.nextAndPrev}>
+                        <BiSkipNext/>
+                    </div>
+                    {/*<FiRepeat/>*/}
+                </div>
                 <div className={cls.progress_bar}>
                     <span className="time current">{formatTime(currentTime)}</span>
                     <progress className={cls.progress} onClick={handleProgressClick} value={currentTime}
@@ -103,7 +114,15 @@ const audioPlayer: FC<audioPlayerProps> = ({currentSong, previousSong, nextSong}
                     <BiSpeaker/>
                     <PiSpeakerLowBold/>
                 </div>
-                <progress className={cls.volumeLine} value={50} max={100}/>
+                <input className={cls.volumeLine} type="range" min="0" max="1" step="0.01" value={volume}
+                       onChange={(e) => {
+                           const newVolume = parseFloat(e.target.value);
+                           setVolume(newVolume);
+                           if (audioRef.current) {
+                               audioRef.current.volume = newVolume;
+                           }
+                       }}
+                />
             </div>
         </div>
     )
